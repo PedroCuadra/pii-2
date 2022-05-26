@@ -17,9 +17,18 @@ public class Gun : MonoBehaviour
             return;
 
         Transform b = bulletSpawnPoint;
-        GameObject bulletInstance = Instantiate(bullet.gameObject, b.position, b.rotation);
+        GameObject bulletInstance = Instantiate(bullet.gameObject, b.position, transform.rotation);
+
+        bulletInstance.transform.parent = b;
+        bulletInstance.transform.localScale = b.localScale;
+        bulletInstance.transform.localPosition = Vector3.zero;
         bulletInstance.GetComponent<Bullet>().damage = damage;
-        bulletInstance.GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        bulletInstance.GetComponent<Rigidbody2D>().velocity = new Vector3(
+            speed * transform.lossyScale.x,
+            0,
+            0
+        );
+        bulletInstance.transform.parent = null;
     }
 
     void Update(){
