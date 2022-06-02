@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6173404422348963629}
   - component: {fileID: 4183008881300934795}
   - component: {fileID: 3070689005209397196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DogeCoin
   m_TagString: Coin
   m_Icon: {fileID: 0}
