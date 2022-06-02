@@ -19,11 +19,11 @@ public class SusIdleState : State<SusBehaviour>
         
         float random = Random.Range(0, 100);
 
-        if(random < 20 && _target.touchingGround){
+        if(random < 60 && _target.touchingGround){
             float scalex = Mathf.Sign(Random.Range(-1, 1));
             _target.transform.localScale = new Vector3(scalex, 1, 1);
             return new SusJumpingState(_target);
-        }else if(random >=20 && random <=30){
+        }else if(random >=60 && random <=70){
             return new SusAttackState(_target);
         }else{
             return this;

@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 114965633}
+  min: {x: 3.93, y: 7.72, z: 0}
+  max: {x: 28.56, y: 5.47, z: 0}
 --- !u!1 &205369302
 GameObject:
   m_ObjectHideFlags: 0

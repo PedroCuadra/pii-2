@@ -5,6 +5,7 @@ using UnityEngine;
 public class SusBehaviour : Entity
 {
     public StateMachine<SusBehaviour> stateMachine;
+    [System.NonSerialized]
     public bool touchingGround = false;
 
     // Start is called before the first frame update
@@ -23,19 +24,13 @@ public class SusBehaviour : Entity
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.y > 0.9f)
-        {
-            touchingGround = true;
-            lastCollision = collision;
-        }
+        touchingGround = true;
+        lastCollision = collision;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision == lastCollision)
-        {
-            touchingGround = false;
-            lastCollision = null;
-        }
+        touchingGround = false;
+        lastCollision = null;
     }
 }
