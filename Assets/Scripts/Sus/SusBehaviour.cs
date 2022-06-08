@@ -8,10 +8,20 @@ public class SusBehaviour : Entity
     [System.NonSerialized]
     public bool touchingGround = false;
 
+    [SerializeField]
+    public SusIdleState idleState;
+    public SusJumpingState jumpState;
+    public SusAttackState attackState;
+
     // Start is called before the first frame update
     void Start()
     {
-        stateMachine = new StateMachine<SusBehaviour>(new SusIdleState(this));
+        stateMachine = new StateMachine<SusBehaviour>(this);
+
+        stateMachine.AddState("idle", idleState);
+        stateMachine.AddState("jump", jumpState);
+        stateMachine.AddState("attack", attackState);
+        stateMachine.SetState("idle");
     }
 
     // Update is called once per frame
@@ -26,11 +36,5 @@ public class SusBehaviour : Entity
     {
         touchingGround = true;
         lastCollision = collision;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        touchingGround = false;
-        lastCollision = null;
     }
 }

@@ -354,8 +354,8 @@ GameObject:
   - component: {fileID: 4139457441562658860}
   - component: {fileID: 4139457441562659795}
   - component: {fileID: 5408072895087003447}
-  - component: {fileID: 5366255893562667052}
   - component: {fileID: 6919323032615026139}
+  - component: {fileID: 4548473878495367785}
   m_Layer: 0
   m_Name: Sus
   m_TagString: Untagged
@@ -418,36 +418,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5366255893562667052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139457441562659793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf05f1cdf14fc248a51868b72b92826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  maxHealth: 5
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5366255893562667052}
-        m_TargetAssemblyTypeName: Entity, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  touchingGround: 0
 --- !u!70 &6919323032615026139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -464,6 +434,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.14}
   m_Size: {x: 1.48, y: 2.11}
   m_Direction: 0
+--- !u!114 &4548473878495367785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139457441562659793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf05f1cdf14fc248a51868b72b92826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  jumpState:
+    jumpForceMin: 30
+    jumpForceMax: 45
+    angleMin: 20
+    angleMax: 50
 --- !u!1 &5533476115224627354
 GameObject:
   m_ObjectHideFlags: 0
