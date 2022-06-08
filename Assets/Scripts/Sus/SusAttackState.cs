@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class SusAttackState : State<SusBehaviour>
 {
-    public SusAttackState(SusBehaviour target) : base(target)
+
+    public override void Enter()
     {
-        target.gameObject.GetComponent<Animator>().SetBool("OpenMouth", true);
+        _target.gameObject.GetComponent<Animator>().SetBool("OpenMouth", true);
     }
 
-    public override State<SusBehaviour> SpecificNext()
-    {
+    public override string ConcreteUpdate()
+    {        
         if (_timeInState < 1)
-            return this;
+            return null;
         else
-            return new SusIdleState(_target);
+            return "idle";
     }
 }

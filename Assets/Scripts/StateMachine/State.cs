@@ -2,21 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public abstract class State<T>
 {
     protected T _target;
-    protected float _timeInState;
+    protected float _timeInState = 0;
+    protected bool _isPaused = false;
 
-    public State(T target)
-    {
-        _target = target;
+    public float timeInState {
+        get { return _timeInState; }
+    }
+
+    public State()
+    {}
+
+    /// <summary>
+    /// Calls the SpecificNext method and returns the next state
+    /// only if the state is not paused.
+    /// </summary>
+    public string Update(){
+        if (_isPaused)
+            return null;
+        else{
+            _timeInState += Time.deltaTime;
+            return ConcreteUpdate();
+        }    
+    }
+    
+    /// <summary>
+    /// Returns the name of the next state.
+    /// if null, the state machine will not change state.
+    /// </summary>
+    public abstract string ConcreteUpdate();
+
+    /// <summary>
+    /// Set the time in the state to 0.
+    /// </summary>
+    public void ResetTime(){
         _timeInState = 0;
     }
 
-    public State<T> Next(){
-        _timeInState += Time.deltaTime;
-        return this.SpecificNext();        
+    /// <summary>
+    /// Sets the target of the state.
+    /// </summary>
+    public void SetTarget(T target){
+        this._target = target;
     }
 
-    public abstract State<T> SpecificNext();
+    /// <summary>
+    /// Override this method to restore
+    /// the state to its initial parameters.
+    /// </summary>
+    public virtual void Enter(){
+        // override if needed
+    }
 }
