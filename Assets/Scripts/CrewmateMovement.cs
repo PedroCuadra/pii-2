@@ -20,6 +20,20 @@ public class CrewmateMovement : MonoBehaviour
     public int maxJump = 1;
     private int jumps = 0;
 
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode leftKey = KeyCode.LeftArrow;
+    public KeyCode rightKey = KeyCode.RightArrow;
+    
+    public KeyCode actionA = KeyCode.Z; // trigger for object that is in the hand of the crewmate
+    public KeyCode triggerKey {get {return actionA;}}
+    
+    public KeyCode actionB = KeyCode.X; // trigger for objects that are in the scene
+    public KeyCode sceneTrigger {get {return actionB;}}
+    
+    public KeyCode actionC = KeyCode.C; // drop current object
+    public KeyCode dropKey {get {return actionC;}}
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,12 +44,12 @@ public class CrewmateMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(jumpKey))
             Jump();
         
         float s = 0;
-        if(Input.GetKey(KeyCode.A)) s = -1f;
-        if(Input.GetKey(KeyCode.D)) s = 1f;
+        if(Input.GetKey(leftKey)) s = -1f;
+        if(Input.GetKey(rightKey)) s = 1f;
         rb.velocity = new Vector2(s * speed, rb.velocity.y);
         crewmateBaseAnimator.SetBool("isWalking", s != 0);
         crewmateBaseAnimator.SetBool("isJumping", isJumping);

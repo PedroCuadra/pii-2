@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Gun : MonoBehaviour
 {
@@ -10,11 +11,23 @@ public class Gun : MonoBehaviour
     public float cooldown = 0.5f;
     private float timeSinceLastShoot = 0;
 
-    public Transform bulletSpawnPoint;
+    [SerializeField] int maxAmmo = 10;
+    [SerializeField] int currentAmmo = 10;
+
+    [SerializeField] Transform bulletSpawnPoint;
+
+    [SerializeField] AudioSource shootSound;
+    [SerializeField] AudioSource reloadSound;
+    [SerializeField] AudioSource emptySound;
 
     public void Shoot(){
         if(timeSinceLastShoot < cooldown)
             return;
+        
+        if(currentAmmo <= 0){
+            emptySound.Play();
+            return;
+        }
 
         Transform b = bulletSpawnPoint;
         GameObject bulletInstance = Instantiate(bullet.gameObject, b.position, transform.rotation);
@@ -29,10 +42,17 @@ public class Gun : MonoBehaviour
             0
         );
         bulletInstance.transform.parent = null;
+        shootSound.Play();
+        currentAmmo--;
     }
 
     void Update(){
         timeSinceLastShoot += Time.deltaTime;
+    }
+
+    void Reload(int bullets){
+        currentAmmo = Mathf.Min(maxAmmo, bullets);
+        reloadSound.Play();
     }
 }
 
