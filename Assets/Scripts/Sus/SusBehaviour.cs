@@ -9,9 +9,9 @@ public class SusBehaviour : Entity
     public bool touchingGround = false;
 
     [SerializeField]
-    public SusIdleState idleState;
-    public SusJumpingState jumpState;
-    public SusAttackState attackState;
+    public SusIdleState idleState = new SusIdleState();
+    public SusJumpingState jumpState = new SusJumpingState();
+    public SusAttackState attackState = new SusAttackState();
 
     // Start is called before the first frame update
     void Start()
