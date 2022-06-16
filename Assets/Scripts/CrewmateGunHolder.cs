@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CrewmateMovement))]
 public class CrewmateGunHolder : MonoBehaviour
 {
     public Transform gunSpawnPoint;
     public GameObject handPrefab;
     public Transform dropTransform;
     private Gun gun;
+    private CrewmateMovement cm;
+
+    void Start(){
+        cm = GetComponent<CrewmateMovement>();
+    }
 
     void Awake(){
         handPrefab.SetActive(false);
@@ -15,12 +21,12 @@ public class CrewmateGunHolder : MonoBehaviour
 
     void Update(){
         if(gun == null)
-            return;
+            return;       
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(cm.triggerKey))
             gun.Shoot();
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(cm.dropKey))
             DropGun();
     }
 
