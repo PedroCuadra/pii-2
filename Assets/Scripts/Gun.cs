@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour
 {
     public float damage = 20;
@@ -29,6 +31,7 @@ public class Gun : MonoBehaviour
             0
         );
         bulletInstance.transform.parent = null;
+        GetComponent<AudioSource>().Play();
     }
 
     void Update(){
