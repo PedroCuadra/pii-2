@@ -7,8 +7,12 @@ public class Crewmate : Entity
   public int coins = 0;
 
   private StateMachine<Crewmate> stateMachine;
-  private CrewmateNormalState normalState = new CrewmateNormalState();
-  private CrewmateTakingDamageState takingDamageState = new CrewmateTakingDamageState();
+  
+  private CrewmateNormalState normalState
+    = new CrewmateNormalState();
+  
+  private CrewmateTakingDamageState takingDamageState
+    = new CrewmateTakingDamageState();
 
   void Start(){
     stateMachine = new StateMachine<Crewmate>(this);
