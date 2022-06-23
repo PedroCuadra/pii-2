@@ -10,10 +10,12 @@ public abstract class Entity : MonoBehaviour
     public float maxHealth;
 
     public UnityEvent onDeath;
+    public UnityEvent onTakeDamage;
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        onTakeDamage?.Invoke();
         if (health <= 0)
         {
             onDeath?.Invoke();

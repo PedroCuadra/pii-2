@@ -50,10 +50,20 @@ public abstract class State<T>
     }
 
     /// <summary>
-    /// Override this method to restore
-    /// the state to its initial parameters.
+    /// Override this method to add
+    /// functionality when the machine
+    /// enters this state
     /// </summary>
     public virtual void Enter(){
+        // override if needed
+    }
+
+    /// <summary>
+    /// Override this method to add
+    /// functionality when the machine 
+    /// leaves the state
+    /// </summary>
+    public virtual void Exit(){
         // override if needed
     }
 }

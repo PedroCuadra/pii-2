@@ -28,6 +28,8 @@ public class StateMachine<T>
             return;
         if(!_states.ContainsKey(name))
             return;
+        if(name!=null && _currentState != null)
+            _currentState.Exit();
         _currentStateName = name;
         _currentState = _states[name];
         _currentState.ResetTime();
