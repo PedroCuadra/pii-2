@@ -16,8 +16,8 @@ TagManager:
   - Coin
   - Player
   - Enemy
-  - 
-  - 
+  - Boundaries
+  - PlayerEnvironment
   - 
   - 
   - 

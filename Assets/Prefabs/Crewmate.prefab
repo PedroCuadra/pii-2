@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 529458700767933741}
   - component: {fileID: 529458700767933740}
   - component: {fileID: 529458700767933743}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201595562218637246}
   - component: {fileID: 7896994816940832918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnvironmentHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2522257801341405033, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2644134977414650575, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.08
@@ -450,9 +454,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.03
       objectReference: {fileID: 0}
+    - target: {fileID: 2806392360150648874, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276876470303509847, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8607946616050122145, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
       propertyPath: m_Name
       value: CrewmateHandGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607946616050122145, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2943275073995349191, guid: 36b805dd3062ef947bb70e9895126846, type: 3}
